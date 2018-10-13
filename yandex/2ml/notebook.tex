@@ -1,0 +1,769 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{grad\_boosting}
+    
+    
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Градиентный бустинг своими
+руками}\label{ux433ux440ux430ux434ux438ux435ux43dux442ux43dux44bux439-ux431ux443ux441ux442ux438ux43dux433-ux441ux432ux43eux438ux43cux438-ux440ux443ux43aux430ux43cux438}
+
+\textbf{Внимание:} в тексте задания произошли изменения - поменялось
+число деревьев (теперь 50), правило изменения величины шага в задании 3
+и добавился параметр \texttt{random\_state} у решающего дерева.
+Правильные ответы не поменялись, но теперь их проще получить. Также
+исправлена опечатка в функции \texttt{gbm\_predict}.
+
+В этом задании будет использоваться датасет \texttt{boston} из
+\texttt{sklearn.datasets}. Оставьте последние 25\% объектов для контроля
+качества, разделив \texttt{X} и \texttt{y} на \texttt{X\_train},
+\texttt{y\_train} и \texttt{X\_test}, \texttt{y\_test}.
+
+Целью задания будет реализовать простой вариант градиентного бустинга
+над регрессионными деревьями для случая квадратичной функции потерь.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}105}]:} \PY{k+kn}{import} \PY{n+nn}{xgboost} \PY{k+kn}{as} \PY{n+nn}{xgb}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k+kn}{import} \PY{n}{datasets}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn.model\PYZus{}selection} \PY{k+kn}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn.metrics} \PY{k+kn}{import} \PY{n}{mean\PYZus{}squared\PYZus{}error} \PY{k}{as} \PY{n}{mse}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}106}]:} \PY{n}{data} \PY{o}{=} \PY{n}{datasets}\PY{o}{.}\PY{n}{load\PYZus{}boston}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n}{X} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+          \PY{n}{y} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{target}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}112}]:} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{25}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,} \PY{n}{shuffle}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+          \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{25}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,} \PY{n}{shuffle}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{} X\PYZus{}train, X\PYZus{}test = data.data[:380], data.data[380:]}
+          \PY{c+c1}{\PYZsh{} y\PYZus{}train, y\PYZus{}test =  data.target[:380], data.target[380:]}
+          
+          \PY{k}{def} \PY{n+nf}{write\PYZus{}ans}\PY{p}{(}\PY{n}{ans}\PY{p}{,} \PY{n}{numb}\PY{p}{)}\PY{p}{:}
+              \PY{n+nb}{file} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ans}\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{numb}\PY{p}{)} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{.txt}\PY{l+s+s2}{\PYZdq{}}
+              \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{n+nb}{file}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{w}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{k}{as} \PY{n}{fout}\PY{p}{:}
+                  \PY{n}{fout}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{ans}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \subsection{Задание 1}\label{ux437ux430ux434ux430ux43dux438ux435-1}
+
+Как вы уже знаете из лекций, \textbf{бустинг} - это метод построения
+композиций базовых алгоритмов с помощью последовательного добавления к
+текущей композиции нового алгоритма с некоторым коэффициентом.
+
+Градиентный бустинг обучает каждый новый алгоритм так, чтобы он
+приближал антиградиент ошибки по ответам композиции на обучающей
+выборке. Аналогично минимизации функций методом градиентного спуска, в
+градиентном бустинге мы подправляем композицию, изменяя алгоритм в
+направлении антиградиента ошибки.
+
+Воспользуйтесь формулой из лекций, задающей ответы на обучающей выборке,
+на которые нужно обучать новый алгоритм (фактически это лишь чуть более
+подробно расписанный градиент от ошибки), и получите частный ее случай,
+если функция потерь \texttt{L} - квадрат отклонения ответа композиции
+\texttt{a(x)} от правильного ответа \texttt{y} на данном \texttt{x}.
+
+Если вы давно не считали производную самостоятельно, вам поможет таблица
+производных элементарных функций (которую несложно найти в интернете) и
+правило дифференцирования сложной функции. После дифференцирования
+квадрата у вас возникнет множитель 2 --- т.к. нам все равно предстоит
+выбирать коэффициент, с которым будет добавлен новый базовый алгоритм,
+проигноируйте этот множитель при дальнейшем построении алгоритма.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}108}]:} \PY{k}{def} \PY{n+nf}{L\PYZus{}loss}\PY{p}{(}\PY{n}{y}\PY{p}{,}\PY{n}{z}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{p}{(}\PY{n}{y} \PY{o}{\PYZhy{}} \PY{n}{z}\PY{p}{)} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2}
+          
+          
+          \PY{k}{def} \PY{n+nf}{L\PYZus{}derivate}\PY{p}{(}\PY{n}{y}\PY{p}{,}\PY{n}{z}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n}{z} \PY{o}{\PYZhy{}} \PY{n}{y}
+\end{Verbatim}
+
+    \subsection{Задание 2}\label{ux437ux430ux434ux430ux43dux438ux435-2}
+
+Заведите массив для объектов \texttt{DecisionTreeRegressor} (будем их
+использовать в качестве базовых алгоритмов) и для вещественных чисел
+(это будут коэффициенты перед базовыми алгоритмами).
+
+В цикле от обучите последовательно 50 решающих деревьев с параметрами
+\texttt{max\_depth=5} и \texttt{random\_state=42} (остальные параметры -
+по умолчанию). В бустинге зачастую используются сотни и тысячи деревьев,
+но мы ограничимся 50, чтобы алгоритм работал быстрее, и его было проще
+отлаживать (т.к. цель задания разобраться, как работает метод). Каждое
+дерево должно обучаться на одном и том же множестве объектов, но ответы,
+которые учится прогнозировать дерево, будут меняться в соответствие с
+полученным в задании 1 правилом.
+
+Попробуйте для начала всегда брать коэффициент равным 0.9. Обычно
+оправдано выбирать коэффициент значительно меньшим - порядка 0.05 или
+0.1, но т.к. в нашем учебном примере на стандартном датасете будет всего
+50 деревьев, возьмем для начала шаг побольше.
+
+В процессе реализации обучения вам потребуется функция, которая будет
+вычислять прогноз построенной на данный момент композиции деревьев на
+выборке \texttt{X}:
+
+\begin{verbatim}
+def gbm_predict(X):
+    return [sum([coeff * algo.predict([x])[0] for algo, coeff in zip(base_algorithms_list, coefficients_list)]) for x in X]
+(считаем, что base_algorithms_list - список с базовыми алгоритмами, coefficients_list - список с коэффициентами перед алгоритмами)
+\end{verbatim}
+
+Эта же функция поможет вам получить прогноз на контрольной выборке и
+оценить качество работы вашего алгоритма с помощью
+\texttt{mean\_squared\_error} в \texttt{sklearn.metrics}.
+
+Возведите результат в степень 0.5, чтобы получить \texttt{RMSE}.
+Полученное значение \texttt{RMSE} --- \textbf{ответ в пункте 2}.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}151}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn.tree} \PY{k+kn}{import} \PY{n}{DecisionTreeRegressor}
+          
+          \PY{k}{def} \PY{n+nf}{gbm\PYZus{}predict}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{base\PYZus{}algorithms\PYZus{}list}\PY{p}{,} \PY{n}{coefficients\PYZus{}list}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{p}{[}\PY{n+nb}{sum}\PY{p}{(}\PY{p}{[}\PY{n}{coeff} \PY{o}{*} \PY{n}{algo}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{p}{[}\PY{n}{x}\PY{p}{]}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{algo}\PY{p}{,} \PY{n}{coeff} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{base\PYZus{}algorithms\PYZus{}list}\PY{p}{,} \PY{n}{coefficients\PYZus{}list}\PY{p}{)}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{X}\PY{p}{]}
+          
+          
+          \PY{k}{def} \PY{n+nf}{train\PYZus{}trees}\PY{p}{(}\PY{n}{coef}\PY{p}{,} \PY{n}{reduced}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}\PY{p}{:}
+              
+              \PY{n}{base\PYZus{}algorithms\PYZus{}list} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+              \PY{n}{coefficients\PYZus{}list} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+              \PY{n}{s} \PY{o}{=} \PY{n}{y\PYZus{}train}
+              \PY{n}{COEF} \PY{o}{=} \PY{n}{coef}
+              
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{)}\PY{p}{:}
+                  
+                  \PY{n}{rand\PYZus{}tree} \PY{o}{=} \PY{n}{DecisionTreeRegressor}\PY{p}{(}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{)}
+                  \PY{n}{rand\PYZus{}tree}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{s}\PY{p}{)}
+                  
+                  \PY{n}{base\PYZus{}algorithms\PYZus{}list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{rand\PYZus{}tree}\PY{p}{)}
+                  \PY{n}{coefficients\PYZus{}list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{coef}\PY{p}{)}
+                  
+                  \PY{n}{s} \PY{o}{=} \PY{n}{y\PYZus{}train} \PY{o}{\PYZhy{}} \PY{n}{gbm\PYZus{}predict}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{base\PYZus{}algorithms\PYZus{}list}\PY{p}{,} \PY{n}{coefficients\PYZus{}list}\PY{p}{)}
+                  
+                  \PY{k}{if} \PY{n}{reduced}\PY{p}{:}
+                      \PY{n}{coef} \PY{o}{=} \PY{n}{COEF}\PY{o}{/}\PY{p}{(}\PY{l+m+mf}{1.0} \PY{o}{+} \PY{n}{i}\PY{p}{)}
+                      
+              \PY{k}{return} \PY{p}{(}\PY{n}{base\PYZus{}algorithms\PYZus{}list}\PY{p}{,} \PY{n}{coefficients\PYZus{}list}\PY{p}{)}
+          
+          
+          \PY{k}{def} \PY{n+nf}{rmse}\PY{p}{(}\PY{n}{y\PYZus{}pred}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n}{mse}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}pred}\PY{p}{)} \PY{o}{*}\PY{o}{*} \PY{o}{.}\PY{l+m+mi}{5}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}150}]:} \PY{n}{base\PYZus{}algorithms\PYZus{}list}\PY{p}{,} \PY{n}{coefficients\PYZus{}list} \PY{o}{=} \PY{n}{train\PYZus{}trees}\PY{p}{(}\PY{o}{.}\PY{l+m+mi}{9}\PY{p}{)}
+          
+          \PY{n}{error} \PY{o}{=} \PY{n}{rmse}\PY{p}{(}\PY{n}{gbm\PYZus{}predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{base\PYZus{}algorithms\PYZus{}list}\PY{p}{,} \PY{n}{coefficients\PYZus{}list}\PY{p}{)}\PY{p}{)}
+          \PY{n}{error}
+          
+          \PY{n}{write\PYZus{}ans}\PY{p}{(}\PY{n}{error}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}150}]:} 5.455565103009407
+\end{Verbatim}
+            
+    \subsection{Задание 3}\label{ux437ux430ux434ux430ux43dux438ux435-3}
+
+Вас может также беспокоить, что двигаясь с постоянным шагом, вблизи
+минимума ошибки ответы на обучающей выборке меняются слишком резко,
+перескакивая через минимум.
+
+Попробуйте уменьшать вес перед каждым алгоритмом с каждой следующей
+итерацией по формуле \texttt{0.9\ /\ (1.0\ +\ i)}, где \texttt{i} -
+номер итерации (от 0 до 49). Используйте качество работы алгоритма как
+\textbf{ответ в пункте 3}.
+
+В реальности часто применяется следующая стратегия выбора шага: как
+только выбран алгоритм, подберем коэффициент перед ним численным методом
+оптимизации таким образом, чтобы отклонение от правильных ответов было
+минимальным. Мы не будем предлагать вам реализовать это для выполнения
+задания, но рекомендуем попробовать разобраться с такой стратегией и
+реализовать ее при случае для себя.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}152}]:} \PY{n}{base\PYZus{}algorithms\PYZus{}list}\PY{p}{,} \PY{n}{coefficients\PYZus{}list} \PY{o}{=} \PY{n}{train\PYZus{}trees}\PY{p}{(}\PY{o}{.}\PY{l+m+mi}{9}\PY{p}{,} \PY{n}{reduced}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+          
+          \PY{n}{error} \PY{o}{=} \PY{n}{rmse}\PY{p}{(}\PY{n}{gbm\PYZus{}predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{base\PYZus{}algorithms\PYZus{}list}\PY{p}{,} \PY{n}{coefficients\PYZus{}list}\PY{p}{)}\PY{p}{)}
+          \PY{n}{error}
+          
+          \PY{n}{write\PYZus{}ans}\PY{p}{(}\PY{n}{error}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}153}]:} \PY{k}{print}\PY{p}{(}\PY{n}{error}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+4.841271476773416
+
+    \end{Verbatim}
+
+    \subsection{Задание 4}\label{ux437ux430ux434ux430ux43dux438ux435-4}
+
+Реализованный вами метод - градиентный бустинг над деревьями - очень
+популярен в машинном обучении. Он представлен как в самой библиотеке
+\texttt{sklearn}, так и в сторонней библиотеке \texttt{XGBoost}, которая
+имеет свой питоновский интерфейс. На практике \texttt{XGBoost} работает
+заметно лучше \texttt{GradientBoostingRegressor} из \texttt{sklearn}, но
+для этого задания вы можете использовать любую реализацию.
+
+Исследуйте, переобучается ли градиентный бустинг с ростом числа итераций
+(и подумайте, почему), а также с ростом глубины деревьев. На основе
+наблюдений выпишите через пробел номера правильных из приведенных ниже
+утверждений в порядке возрастания номера (это будет \textbf{ответ в
+п.4}):
+
+\begin{verbatim}
+1. С увеличением числа деревьев, начиная с некоторого момента, качество работы градиентного бустинга не меняется существенно.
+
+2. С увеличением числа деревьев, начиная с некоторого момента, градиентный бустинг начинает переобучаться.
+
+3. С ростом глубины деревьев, начиная с некоторого момента, качество работы градиентного бустинга на тестовой выборке начинает ухудшаться.
+
+4. С ростом глубины деревьев, начиная с некоторого момента, качество работы градиентного бустинга перестает существенно изменяться
+\end{verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}294}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn.ensemble} \PY{k+kn}{import} \PY{n}{GradientBoostingRegressor}
+          \PY{k+kn}{from} \PY{n+nn}{sklearn.model\PYZus{}selection} \PY{k+kn}{import} \PY{n}{cross\PYZus{}val\PYZus{}score}
+          \PY{o}{\PYZpc{}}\PY{k}{pylab} inline
+          
+          \PY{k}{def} \PY{n+nf}{plot\PYZus{}scores}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{p}{,} \PY{n}{x\PYZus{}gb\PYZus{}score}\PY{p}{,} \PY{n}{sk\PYZus{}gb\PYZus{}score}\PY{p}{)}\PY{p}{:}
+              \PY{n}{x\PYZus{}gb\PYZus{}score} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{asmatrix}\PY{p}{(}\PY{n}{x\PYZus{}gb\PYZus{}score}\PY{p}{)}
+              \PY{n}{sk\PYZus{}gb\PYZus{}score} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{asmatrix}\PY{p}{(}\PY{n}{sk\PYZus{}gb\PYZus{}score}\PY{p}{)}
+              
+              \PY{n}{pylab}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{dpi}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+              \PY{n}{pylab}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{p}{,} \PY{n}{x\PYZus{}gb\PYZus{}score}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{XGBRegressor}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{n}{pylab}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{p}{,} \PY{n}{sk\PYZus{}gb\PYZus{}score}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{sklearn.GBR}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{n}{pylab}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{n+nb+bp}{True}\PY{p}{)}
+              \PY{n}{pylab}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{number of trees/depths}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{n}{pylab}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{RMSE score}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+              \PY{n}{pylab}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{loc}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{best}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{compare\PYZus{}}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{l\PYZus{}rate}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{depth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{neg\PYZus{}mean\PYZus{}squared\PYZus{}error}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+              
+              \PY{n}{x\PYZus{}gb\PYZus{}score} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+              \PY{n}{sk\PYZus{}gb\PYZus{}score} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+          
+              \PY{k}{if} \PY{n+nb}{type}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{p}{)} \PY{o}{==} \PY{n+nb}{list}\PY{p}{:}
+                  \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n}{n\PYZus{}est}\PY{p}{:}
+                      \PY{n}{x\PYZus{}gb} \PY{o}{=} \PY{n}{xgb}\PY{o}{.}\PY{n}{XGBRegressor}\PY{p}{(}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{n}{l\PYZus{}rate}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{n}{depth}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{,} \PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n}\PY{p}{)}
+                      \PY{n}{sk\PYZus{}gb} \PY{o}{=} \PY{n}{GradientBoostingRegressor}\PY{p}{(}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{n}{l\PYZus{}rate}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{n}{depth}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{,} \PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n}\PY{p}{)}
+          
+                      \PY{n}{x\PYZus{}score} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{x\PYZus{}gb}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{n}{scoring}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+                      \PY{n}{sk\PYZus{}score} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{sk\PYZus{}gb}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{n}{scoring}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+          
+          
+                      \PY{n}{x\PYZus{}gb\PYZus{}score}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{x\PYZus{}score}\PY{p}{)}
+                      \PY{n}{sk\PYZus{}gb\PYZus{}score}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sk\PYZus{}score}\PY{p}{)}
+                  
+                  \PY{n}{plot\PYZus{}scores}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{p}{,}\PY{n}{x\PYZus{}gb\PYZus{}score}\PY{p}{,} \PY{n}{sk\PYZus{}gb\PYZus{}score}\PY{p}{)}
+                  \PY{k}{return} \PY{n+nb+bp}{None}
+              
+              \PY{k}{elif} \PY{n+nb}{type}\PY{p}{(}\PY{n}{depth}\PY{p}{)} \PY{o}{==} \PY{n+nb}{list}\PY{p}{:}
+                  \PY{k}{for} \PY{n}{d} \PY{o+ow}{in} \PY{n}{depth}\PY{p}{:}
+                      \PY{n}{x\PYZus{}gb} \PY{o}{=} \PY{n}{xgb}\PY{o}{.}\PY{n}{XGBRegressor}\PY{p}{(}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{n}{l\PYZus{}rate}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{n}{d}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{,} \PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n\PYZus{}est}\PY{p}{)}
+                      \PY{n}{sk\PYZus{}gb} \PY{o}{=} \PY{n}{GradientBoostingRegressor}\PY{p}{(}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{n}{l\PYZus{}rate}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{n}{d}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{,} \PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n\PYZus{}est}\PY{p}{)}
+          
+                      \PY{n}{x\PYZus{}score} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{x\PYZus{}gb}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{n}{scoring}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+                      \PY{n}{sk\PYZus{}score} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{sk\PYZus{}gb}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{n}{scoring}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+          
+                      \PY{n}{x\PYZus{}gb\PYZus{}score}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{x\PYZus{}score}\PY{p}{)}
+                      \PY{n}{sk\PYZus{}gb\PYZus{}score}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sk\PYZus{}score}\PY{p}{)}
+                  \PY{n}{plot\PYZus{}scores}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{p}{,}\PY{n}{x\PYZus{}gb\PYZus{}score}\PY{p}{,} \PY{n}{sk\PYZus{}gb\PYZus{}score}\PY{p}{)}
+                  \PY{k}{return} \PY{n+nb+bp}{None}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Populating the interactive namespace from numpy and matplotlib
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{k}{def} \PY{n+nf}{simple\PYZus{}learn}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{50}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+            \PY{n}{test} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+            \PY{n}{train} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{p}{)}
+            \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n}{n\PYZus{}estimators}\PY{p}{:}
+                \PY{n}{est} \PY{o}{=} \PY{n}{xgb}\PY{o}{.}\PY{n}{XGBRegressor}\PY{p}{(}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{42}\PY{p}{,} \PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n}\PY{p}{)}
+                \PY{n}{est}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{p}{)}
+                \PY{n}{test}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mf}{0.5} \PY{o}{*}\PY{o}{*} \PY{n}{mse}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{est}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                \PY{n}{train}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mf}{0.5} \PY{o}{*}\PY{o}{*} \PY{n}{mse}\PY{p}{(}\PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{est}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+            \PY{k}{return} \PY{n}{train}\PY{p}{,} \PY{n}{test}
+        
+        \PY{n}{numbers} \PY{o}{=} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{250}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}
+        \PY{n}{train}\PY{p}{,} \PY{n}{test} \PY{o}{=} \PY{n}{simple\PYZus{}learn}\PY{p}{(}\PY{n}{numbers}\PY{p}{)}
+        
+        \PY{n}{pylab}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{numbers}\PY{p}{,} \PY{n}{train}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{train}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{pylab}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{numbers}\PY{p}{,} \PY{n}{test}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{test}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{pylab}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{number of trees}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{pylab}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{RMSE}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{pylab}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{loc}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{best}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  С увеличением числа деревьев, начиная с некоторого момента, качество
+  работы градиентного бустинга не меняется существенно.
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}272}]:} \PY{n}{n\PYZus{}est} \PY{o}{=} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{250}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}
+          \PY{n}{compare\PYZus{}}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{o}{=}\PY{n}{n\PYZus{}est}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{neg\PYZus{}mean\PYZus{}squared\PYZus{}error}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_16_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  С увеличением числа деревьев, начиная с некоторого момента,
+  градиентный бустинг начинает переобучаться.
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}245}]:} \PY{n}{n\PYZus{}est} \PY{o}{=} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{250}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}
+          \PY{n}{compare\PYZus{}}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{o}{=}\PY{n}{n\PYZus{}est}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  С ростом глубины деревьев, начиная с некоторого момента, качество
+  работы градиентного бустинга на тестовой выборке начинает ухудшаться.
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}257}]:} \PY{n}{depth} \PY{o}{=} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}
+          \PY{n}{compare\PYZus{}}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{o}{=}\PY{l+m+mi}{250}\PY{p}{,} \PY{n}{depth}\PY{o}{=}\PY{n}{depth}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r2}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  С ростом глубины деревьев, начиная с некоторого момента, качество
+  работы градиентного бустинга перестает существенно изменяться
+\end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}296}]:} \PY{n}{depth} \PY{o}{=} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{30}\PY{p}{)}
+          \PY{n}{compare\PYZus{}}\PY{p}{(}\PY{n}{n\PYZus{}est}\PY{o}{=}\PY{l+m+mi}{250}\PY{p}{,}\PY{n}{l\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.01}\PY{p}{,} \PY{n}{depth}\PY{o}{=}\PY{n}{depth}\PY{p}{,} \PY{n}{scoring}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{neg\PYZus{}mean\PYZus{}squared\PYZus{}error}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+
+        ValueError                                Traceback (most recent call last)
+
+        <ipython-input-296-4a1f2679c050> in <module>()
+          1 depth = range(1,30)
+    ----> 2 compare\_(n\_est=250,l\_rate=0.01, depth=depth, scoring="neg\_mean\_squared\_error")
+    
+
+        <ipython-input-294-c3842ade9a7c> in compare\_(n\_est, l\_rate, depth, scoring)
+         46             x\_gb\_score.append(x\_score)
+         47             sk\_gb\_score.append(sk\_score)
+    ---> 48         plot\_scores(n\_est,x\_gb\_score, sk\_gb\_score)
+         49         return None
+
+
+        <ipython-input-294-c3842ade9a7c> in plot\_scores(n\_est, x\_gb\_score, sk\_gb\_score)
+          8 
+          9     pylab.figure(dpi=100)
+    ---> 10     pylab.plot(n\_est, x\_gb\_score.mean(axis=1), marker='o', label="XGBRegressor")
+         11     pylab.plot(n\_est, sk\_gb\_score.mean(axis=1), marker='x', label="sklearn.GBR")
+         12     pylab.grid(True)
+
+
+        /home/storm/anaconda3/envs/ipykernel\_py2/lib/python2.7/site-packages/matplotlib/pyplot.pyc in plot(*args, **kwargs)
+       3361                       mplDeprecation)
+       3362     try:
+    -> 3363         ret = ax.plot(*args, **kwargs)
+       3364     finally:
+       3365         ax.\_hold = washold
+
+
+        /home/storm/anaconda3/envs/ipykernel\_py2/lib/python2.7/site-packages/matplotlib/\_\_init\_\_.pyc in inner(ax, *args, **kwargs)
+       1865                         "the Matplotlib list!)" \% (label\_namer, func.\_\_name\_\_),
+       1866                         RuntimeWarning, stacklevel=2)
+    -> 1867             return func(ax, *args, **kwargs)
+       1868 
+       1869         inner.\_\_doc\_\_ = \_add\_data\_doc(inner.\_\_doc\_\_,
+
+
+        /home/storm/anaconda3/envs/ipykernel\_py2/lib/python2.7/site-packages/matplotlib/axes/\_axes.pyc in plot(self, *args, **kwargs)
+       1526         kwargs = cbook.normalize\_kwargs(kwargs, \_alias\_map)
+       1527 
+    -> 1528         for line in self.\_get\_lines(*args, **kwargs):
+       1529             self.add\_line(line)
+       1530             lines.append(line)
+
+
+        /home/storm/anaconda3/envs/ipykernel\_py2/lib/python2.7/site-packages/matplotlib/axes/\_base.pyc in \_grab\_next\_args(self, *args, **kwargs)
+        404                 this += args[0],
+        405                 args = args[1:]
+    --> 406             for seg in self.\_plot\_args(this, kwargs):
+        407                 yield seg
+        408 
+
+
+        /home/storm/anaconda3/envs/ipykernel\_py2/lib/python2.7/site-packages/matplotlib/axes/\_base.pyc in \_plot\_args(self, tup, kwargs)
+        381             x, y = index\_of(tup[-1])
+        382 
+    --> 383         x, y = self.\_xy\_from\_xy(x, y)
+        384 
+        385         if self.command == 'plot':
+
+
+        /home/storm/anaconda3/envs/ipykernel\_py2/lib/python2.7/site-packages/matplotlib/axes/\_base.pyc in \_xy\_from\_xy(self, x, y)
+        240         if x.shape[0] != y.shape[0]:
+        241             raise ValueError("x and y must have same first dimension, but "
+    --> 242                              "have shapes \{\} and \{\}".format(x.shape, y.shape))
+        243         if x.ndim > 2 or y.ndim > 2:
+        244             raise ValueError("x and y can be no greater than 2-D, but have "
+
+
+        ValueError: x and y must have same first dimension, but have shapes (1,) and (29, 1)
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}286}]:} \PY{n}{write\PYZus{}ans}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n+nb}{map}\PY{p}{(}\PY{n+nb}{str}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}
+\end{Verbatim}
+
+    \subsection{Задание 5}\label{ux437ux430ux434ux430ux43dux438ux435-5}
+
+Сравните получаемое с помощью градиентного бустинга качество с качеством
+работы линейной регрессии.
+
+Для этого обучите \texttt{LinearRegression} из
+\texttt{sklearn.linear\_model} (с параметрами по умолчанию) на обучающей
+выборке и оцените для прогнозов полученного алгоритма на тестовой
+выборке \texttt{RMSE}. Полученное качество - ответ в \textbf{пункте 5}.
+
+В данном примере качество работы простой модели должно было оказаться
+хуже, но не стоит забывать, что так бывает не всегда. В заданиях к этому
+курсу вы еще встретите пример обратной ситуации.
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
