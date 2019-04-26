@@ -13,7 +13,7 @@ class MarketReviewsSpider(scrapy.Spider):
     def __init__(self):
         super().__init__()
         self.domain = 'http://market.yandex.ru'
-        self.start_urls = [self.domain + page for page in open('ym_phones_urls.txt', 'r').read().split('\n')]
+        self.start_urls = [[self.domain + page for page in open('ym_phones_urls.txt', 'r').read().split('\n')]]
 
     def parse(self, response):
         data = BeautifulSoup(response.text, 'lxml')
@@ -30,14 +30,23 @@ class MarketReviewsSpider(scrapy.Spider):
         parse = data.select('div.n-product-review-item')
         item = PhoneReviews()
 
-        full_revs = [" ".join([j.text for j in i.select('dd.n-product-review-item__text')]) for i in parse]
-
+        # TODO: create loop and pass item for better csv output like mark, review -> next row !!!DONE!!!
+        # TODO: test it!
+        # inner list 1 review combined pros,neg, final
+        # outer list  combine all revs into single str === sep for 100% prob to split text on revs.
+        # full_revs = "===".join([", ".join([j.text for j in i.select('dd.n-product-review-item__text')]) for i in parse])
         rating_revs = [1 if float(i.text) > 3 else 0 for i in data.select('div.rating__value')]
+        full_revs = [", ".join([j.text for j in i.select('dd.n-product-review-item__text')]) for i in parse]
 
-        item['reviews'] = full_revs
-        item['marks'] = rating_revs
+        for indx in range(len(full_revs)):
+            item['reviews'] = full_revs[indx]
+            item['marks'] = rating_revs[indx]
+            yield item
 
-        yield item
+        # TODO: old item
+        # item['reviews'] = full_revs
+        # item['marks'] = " ".join([str(mark) for mark in rating_revs])
+        # yield item
 
         next_review_page = next(iter(data.select('a.n-pager__button-next')), None)
         if next_review_page:

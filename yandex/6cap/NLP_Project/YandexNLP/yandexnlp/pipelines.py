@@ -5,6 +5,7 @@ from scrapy.item import Item, Field
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+import csv
 
 
 class YandexnlpPipeline(object):
@@ -14,11 +15,11 @@ class YandexnlpPipeline(object):
         self.file = None
 
     def open_spider(self, spider):
-        self.file = open('reviews_yandexmarket.txt', 'w+')
+        self.file = csv.writer(open('reviews_yandexmarket.csv', 'w+'))
 
     def close_spder(self, spider):
         self.file.close()
 
     def process_item(self, item, spider):
-        self.file.write(("{}, {} \n".format(item['review'], item['marks'])))
+        self.file.writerow((item['reviews'], item['marks']))
         return item

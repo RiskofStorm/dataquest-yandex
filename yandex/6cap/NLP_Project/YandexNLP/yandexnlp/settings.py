@@ -26,14 +26,24 @@ ROBOTSTXT_OBEY = False
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 1
 
-# Configure a delay for requests for the same website (default: 0)
-# See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
-# See also autothrottle settings and docs
 DOWNLOAD_DELAY = 15
 AUTOTHROTTLE_ENABLED = True
 AUTOTHROTTLE_START_DELAY = 15
 AUTOTHROTTLE_MAX_DELAY = 60
 AUTOTHROTTLE_TARGET_CONCURRENCY = 1
+
+# Configure item pipelines
+# See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+ITEM_PIPELINES = {
+   'yandexnlp.pipelines.YandexnlpPipeline': 9000,
+}
+
+# Configure a delay for requests for the same website (default: 0)
+# See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
+# See also autothrottle settings and docs
+
+
+
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -68,11 +78,6 @@ AUTOTHROTTLE_TARGET_CONCURRENCY = 1
 #    'scrapy.extensions.telnet.TelnetConsole': None,
 #}
 
-# Configure item pipelines
-# See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'yandexnlp.pipelines.YandexnlpPipeline': 300,
-#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
