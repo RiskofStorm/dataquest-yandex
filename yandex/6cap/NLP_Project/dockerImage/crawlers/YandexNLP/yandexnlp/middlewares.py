@@ -112,7 +112,7 @@ class SleepRetryMiddleware(RetryMiddleware):
 
     def process_response(self, request, response, spider):
         if response.url.rfind('showcaptcha') != -1:
-            time.sleep(random.randint(400, 650))
+            time.sleep(random.randint(800, 1800))
             reason = response_status_message(response.status)
             return self._retry(request, reason, spider) or response
         return super(SleepRetryMiddleware, self).process_response(request, response, spider)

@@ -41,7 +41,6 @@ class MarketReviewsSpider(scrapy.Spider):
             yield item
 
         next_review_page = next(iter(data.select('a.n-pager__button-next')), None)
-        print(next_review_page)
         if next_review_page:
             yield scrapy.Request(self.domain + next_review_page.get('href'), callback=self.parse_review_page)
 

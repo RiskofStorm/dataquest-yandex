@@ -26,11 +26,11 @@ ROBOTSTXT_OBEY = False
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32
 
-DOWNLOAD_DELAY = 5
+DOWNLOAD_DELAY = 180
 AUTOTHROTTLE_ENAB1LED = True
-AUTOTHROTTLE_START_DELAY = 5
-AUTOTHROTTLE_MAX_DELAY = 35
-AUTOTHROTTLE_TARGET_CONCURRENCY = 32
+AUTOTHROTTLE_START_DELAY = 180
+AUTOTHROTTLE_MAX_DELAY = 360
+AUTOTHROTTLE_TARGET_CONCURRENCY = 16
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html

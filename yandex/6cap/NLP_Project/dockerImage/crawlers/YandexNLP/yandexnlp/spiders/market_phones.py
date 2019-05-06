@@ -15,7 +15,7 @@ class MarketPhonesSpider(CrawlSpider):
     def __init__(self):
         super().__init__()
         # Need more pages to parse? just increase range at self.pages
-        self.pages = iter([self.start_urls[0] + "&page={}".format(i) for i in range(21, 40)])
+        self.pages = iter([self.start_urls[0] + "&page={}".format(i) for i in range(1, 20)])
         self.phones_urls = list()
 
     def parse(self, response):
