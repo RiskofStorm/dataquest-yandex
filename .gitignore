@@ -1,2 +1,7 @@
-
+.git
 .ipynb_checkpoints
+.idea
+.scrapy
+
+yandex/6cap/NLP_Project/YandexNLP/.scrapy
+yandex/6cap/NLP_Project/YandexNLP/.idea
