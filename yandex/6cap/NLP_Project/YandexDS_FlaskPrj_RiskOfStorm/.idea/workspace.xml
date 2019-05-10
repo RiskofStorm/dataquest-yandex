@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="261588f6-ba0e-4601-963c-652f0e76f2df" name="Default Changelist" comment="" />
+    <list default="true" id="261588f6-ba0e-4601-963c-652f0e76f2df" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../85%ProductSentimentAnalysis.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexDS_FlaskPrj_RiskOfStorm.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/YandexDS_FlaskPrj_RiskOfStorm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/YandexDS_FlaskPrj_RiskOfStorm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/file.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/reviews_yandexmarket.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/scrapy.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/yandexnlp/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/yandexnlp/items.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/yandexnlp/middlewares.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/yandexnlp/pipelines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/yandexnlp/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/yandexnlp/spiders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/yandexnlp/spiders/market_phones.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/yandexnlp/spiders/market_reviews.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YandexNLP/ym_phones_urls.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/reviews_yandexmarket.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/scrapy.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/yandexnlp/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/yandexnlp/items.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/yandexnlp/middlewares.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/yandexnlp/pipelines.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/yandexnlp/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/yandexnlp/spiders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/yandexnlp/spiders/market_phones.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/yandexnlp/spiders/market_reviews.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/crawlers/YandexNLP/ym_phones_urls.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dockerImage/runImage.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kaggle85%SentimentAnalysis_AbramovDN.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../kaggle85%SentimentAnalysis_AbramovDN.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nlp_process_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../nlp_process_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample_submission.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../submission.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../submission.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week6.ipynb" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+            <state relative-caret-position="60">
+              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -25,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="195">
+              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -35,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/create_storm_env.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -43,26 +85,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sentiment_classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+            <state relative-caret-position="255">
+              <caret line="17" column="13" selection-end-line="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" selection-start-line="12" selection-end-line="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dump_models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+            <state relative-caret-position="135">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -85,6 +127,9 @@
       <find>dump(</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -97,10 +142,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="2880" />
-    <option name="width" value="960" />
-    <option name="height" value="1080" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1" />
+    <option name="y" value="25" />
+    <option name="width" value="1922" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -113,11 +159,12 @@
           <expand>
             <path>
               <item name="YandexDS_FlaskPrj_RiskOfStorm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="YandexDS_FlaskPrsnt" type="462c0819:PsiDirectoryNode" />
+              <item name="YandexDS_FlaskPrj_RiskOfStorm" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="YandexDS_FlaskPrj_RiskOfStorm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="YandexDS_FlaskPrj_RiskOfStorm" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -127,6 +174,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -143,27 +191,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.model_test">
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="YandexDS_FlaskPrj_RiskOfStorm" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="dump_models" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YandexDS_FlaskPrj_RiskOfStorm" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -227,49 +254,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="YandexDS_FlaskPrj_RiskOfStorm" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="YandexDS_FlaskPrj_RiskOfStorm" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <module name="YandexDS_FlaskPrj_RiskOfStorm" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.model_test" />
@@ -292,10 +276,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1919" y="0" width="1922" height="1081" extended-state="6" />
+    <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06990395" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12651555" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -309,6 +293,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32916668" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -317,95 +302,59 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda3/envs/YandexDS_FlaskPrsnt/lib/python2.7/site-packages/sklearn/linear_model/logistic.py">
+    <entry file="file://$USER_HOME$/anaconda3/envs/YandexDS_FlaskPrsnt/lib/python2.7/site-packages/sklearn/linear_model/logistic.py" />
+    <entry file="file://$USER_HOME$/anaconda3/envs/YandexDS_FlaskPrsnt/lib/python2.7/site-packages/sklearn/feature_extraction/__init__.py" />
+    <entry file="file://$USER_HOME$/anaconda3/envs/YandexDS_FlaskPrsnt/lib/python2.7/site-packages/sklearn/feature_extraction/text.py" />
+    <entry file="file://$USER_HOME$/anaconda3/envs/YandexDS_FlaskPrsnt/lib/python2.7/pickle.py" />
+    <entry file="file://$USER_HOME$/anaconda3/envs/FlaskSklearn/lib/python3.7/pickle.py" />
+    <entry file="file://$PROJECT_DIR$/../simple_demo/demo.py" />
+    <entry file="file://$PROJECT_DIR$/../simple_demo/classifier_test.py" />
+    <entry file="file://$PROJECT_DIR$/../simple_demo/sentiment_classifier.py" />
+    <entry file="file://$PROJECT_DIR$/create_storm_env.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="1226" column="8" selection-start-line="1226" selection-start-column="8" selection-end-line="1226" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/YandexDS_FlaskPrsnt/lib/python2.7/site-packages/sklearn/feature_extraction/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/YandexDS_FlaskPrsnt/lib/python2.7/site-packages/sklearn/feature_extraction/text.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/YandexDS_FlaskPrsnt/lib/python2.7/pickle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="1374" column="4" selection-start-line="1374" selection-start-column="4" selection-end-line="1374" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/FlaskSklearn/lib/python3.7/pickle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="1590" column="4" selection-start-line="1590" selection-start-column="4" selection-end-line="1590" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../simple_demo/demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../simple_demo/classifier_test.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../simple_demo/sentiment_classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dump_models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+        <state relative-caret-position="60">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/result.html">
+    <entry file="file://$PROJECT_DIR$/model_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create_storm_env.sh">
+    <entry file="file://$PROJECT_DIR$/templates/result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
+        <state relative-caret-position="195">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment_classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="41" lean-forward="true" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        <state relative-caret-position="255">
+          <caret line="17" column="13" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model_test.py">
+    <entry file="file://$PROJECT_DIR$/dump_models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
