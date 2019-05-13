@@ -1,11 +1,11 @@
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import plotly.graph_objs as go
+from flask import render_template, request
+
 from dump_models import serialize_model
 from sentiment_classifier import LoadedModel
-from flask import render_template, request
-import dash
-import dash_html_components as html
-import dash_core_components as dcc
-import plotly.graph_objs as go
-
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css',
                         "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"]
@@ -60,7 +60,7 @@ if __name__ == "__main__":
         print("SOMETHING IS MISSING")
         print("Process data, train vectorizer and model, gathering stats: ")
         serialize_model()
-        print("DONE >>>> RESTART main.py ")
+        print("DONE >> >> RESTART main.py ")
         raise SystemExit
 
     print("LOADING: vectorizer, model, stats")

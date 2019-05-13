@@ -1,12 +1,12 @@
-from nlp_process_data import text_cleaning
 import pickle
-import pandas as pd
+
 import numpy as np
-
+import pandas as pd
 from nltk.stem.porter import PorterStemmer
-
-from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+
+from nlp_process_data import text_cleaning
 
 
 def handle_rawdata(series, func=None):
@@ -16,7 +16,6 @@ def handle_rawdata(series, func=None):
 
 
 def serialize_model():
-
     try:
         data = pd.read_csv('yandex_phone_reviews.csv', sep=',', )
     except ValueError:
