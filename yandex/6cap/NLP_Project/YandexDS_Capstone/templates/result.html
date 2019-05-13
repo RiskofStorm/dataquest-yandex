@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Daniel's Sentence Sentiment Model</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<body>
+<div class="container h-100">
+    <form action="{{ url_for('main_page') }}" method="post">
+        <dl>
+            <dt>This is a demonstartion of Daniel Abramov's sentiment classifier model</dt>
+
+            <br>
+            <dt>Insert review : <br>
+            <dd><textarea name="text" rows=10 cols=60> {{ text }}</textarea>
+            <dd><input type=submit value="Determine">
+        </dl>
+    </form>
+
+    Predictions results:<br/>
+    {{ prediction_msg }}
+    <br/><br/><br/>
+    <a href="/plot/">Plot of most valuable words</a><br/>
+    <a href="/words/">Dict of most valuable words</a><br/>
+
+    <a href="/model/">Model stats</a><br/>
+</div>
+
+</body>
