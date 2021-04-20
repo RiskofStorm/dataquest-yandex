@@ -16,7 +16,7 @@ docker-pycreds==0.4.0
 hyperlink==18.0.0
 idna==2.8
 incremental==17.5.0
-lxml==4.3.2
+lxml==4.6.3
 more-itertools==6.0.0
 parsel==1.5.1
 pluggy==0.9.0
